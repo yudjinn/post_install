@@ -25,7 +25,7 @@ echo "deb [arch=amd64] https://pkg.surfacelinux.com/debian release main" | sudo 
 fi
 
 #snaps and debs
-snaps=(spotify android-messages-desktop code krita chromium unofficial-webapp-office)
+snaps=(spotify krita chromium unofficial-webapp-office)
 debs=(gnome-tweak-tool python3 git apt-transport-https ca-certificates curl gnupg-agent software-properties-common snapd)
 
 #install packages
@@ -38,13 +38,13 @@ then
 sudo apt install -y google-drive-ocamlfuse git
 fi
 echo "Debs first:"
-echo $debs
+echo ${debs[*]}
 sudo apt install -y ${debs[*]} 
 BACK_PID=$!
 wait $BACK_PID
 echo "Snaps now:"
-echo $snaps
-sudo snap install -y ${snaps[*]} 
+echo ${snaps[*]}
+sudo snap install ${snaps[*]}
 BACK_PID=$!
 wait $BACK_PID
 echo "Removing that pesky firefox..."
@@ -92,6 +92,15 @@ google-drive-ocamlfuse
 mkdir -p ~/google-drive
 sudo google-drive-ocamlfuse ~/google-drive
 fi
+
+#VS code installation
+echo "Installing VSCode..."
+sudo snap install code --classic
+exts=( ms-python.python ms-python.vscode-pylance )
+for i in "${exts[@]}"; do
+    code --install-extension "$i"
+done
+
 
 #Configure bashrc and kakrc
 echo "Configuring bashrc and kakrc.."
