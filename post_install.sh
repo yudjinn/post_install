@@ -67,6 +67,7 @@ then
 echo "Surfacelinux package installation..."
 sudo apt install -y linux-headers-surface linux-image-surface linux-libc-dev-surface surface-ipts-firmware libwacom-surface
 sudo apt install -y linux-surface-secureboot-mok
+sudo echo "options ipts singletouch=y">/etc/modprobe.d/ipts.conf
 fi
 
 #Laptop only installation
@@ -98,3 +99,4 @@ echo -e "\n\nexport XDG_CONFIG_HOME=\$HOME/.config">>$HOME/.bashrc
 source $HOME/.bashrc
 mkdir -p $HOME/.config/kak
 echo "hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }">$HOME/.config/kak/kakrc
+
