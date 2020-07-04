@@ -26,7 +26,7 @@ fi
 
 #snaps and debs
 snaps=(spotify android-messages-desktop code krita chromium unofficial-webapp-office)
-debs=(gnome-tweak-tool python3 git apt-transport-https ca-certificates curl gnupg-agent software-properties-common)
+debs=(gnome-tweak-tool python3 git apt-transport-https ca-certificates curl gnupg-agent software-properties-common snapd)
 
 #install packages
 echo "Installing base packages"
