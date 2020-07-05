@@ -93,10 +93,14 @@ mkdir -p ~/google-drive
 sudo google-drive-ocamlfuse ~/google-drive
 fi
 
+#Installing Kite for dev
+echo "Installing Kite..."
+bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
+
 #VS code installation
 echo "Installing VSCode..."
 sudo snap install code --classic
-exts=( ms-python.python ms-python.vscode-pylance )
+exts=( ms-python.python ms-python.vscode-pylance kiteco.kite )
 for i in "${exts[@]}"; do
     code --install-extension "$i"
 done
