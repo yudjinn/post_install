@@ -25,8 +25,8 @@ echo "deb [arch=amd64] https://pkg.surfacelinux.com/debian release main" | sudo 
 fi
 
 #snaps and debs
-snaps=(spotify krita chromium unofficial-webapp-office)
-debs=(gnome-tweak-tool python3 git apt-transport-https ca-certificates curl gnupg-agent software-properties-common snapd)
+snaps=(spotify krita unofficial-webapp-office)
+debs=(gnome-tweak-tool python3 git apt-transport-https ca-certificates curl gnupg-agent software-properties-common snapd chromium-browser)
 
 #install packages
 echo "Installing base packages"
